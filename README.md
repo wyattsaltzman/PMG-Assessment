@@ -39,13 +39,15 @@ For Campaign 5, Georgia generated the most conversations.
 
 **5. In your opinion, which campaign was the most efficient, and why?**
 
-In terms of pure efficiency, Campaign 4 stands out as the most effective choice. My analysis was based on the Cost per Lead (CPL) metric, where I divided the total cost by the total number of conversions for each campaign. Notably, Campaign 4 exhibited the lowest CPL among all five campaigns. 
+In terms of pure efficiency, Campaign 4 stands out as the most effective choice. My analysis was based on the Cost per Lead (CPL) metric, where I divided the total cost by the total number of conversions for each campaign. Notably, Campaign 4 exhibited the lowest CPL among all five campaigns.
 
-Although the differences in CPL were relatively small across the campaigns, Campaign 4's distinct advantage became evident when considering Return on Investment (ROI). With a significantly higher ROI compared to the other campaigns, Campaign 4 demonstrated its ability not only to acquire leads efficiently but also to convert those leads into substantial revenue. 
+Although the differences in CPL were relatively small across the campaigns, Campaign 4's distinct advantage became evident when considering Return on Investment (ROI). With a significantly higher ROI compared to the other campaigns, Campaign 4 demonstrated its ability not only to acquire leads efficiently but also to convert those leads into substantial revenue.
 
-By combining a low CPL with a strong ROI, Campaign 4 showcased efficient resource utilization and strategic prowess. These factors collectively support the conclusion that Campaign 4 is the most efficient campaign choice.
+Furthermore, a crucial aspect that solidifies Campaign 4's position as the most efficient campaign is its notably low Cost Revenue Ratio (CRR). The CRR, a metric widely used to evaluate the effectiveness of additional costs, showcased Campaign 4's exceptional performance. The fact that Campaign 4 maintains the lowest CRR among all campaigns highlights its cost-efficient approach.
 
-When evaluating campaign efficiency, it's crucial to consider a range of metrics aligned with our objectives and strategy. In this case, the combination of metrics underscores Campaign 4's effectiveness in lead generation and revenue conversion, reinforcing its position as the optimal choice for efficiency.
+By combining a low CPL, strong ROI, and the lowest CRR, Campaign 4 showcases a holistic and consistent demonstration of efficient resource utilization and strategic prowess. These factors collectively support the conclusion that Campaign 4 is the most efficient campaign choice.
+
+When evaluating campaign efficiency, it's crucial to consider a range of metrics aligned with our objectives and strategy. In this case, the combination of metrics underscores Campaign 4's effectiveness in lead generation and revenue conversion, reinforcing its position as the optimal choice for efficiency and prudent resource allocation.
 
 Here is the SQL query I used to look at the data:
 ```MYSQL
@@ -56,7 +58,6 @@ SELECT name as campaign_name,
        SUM(wr.revenue) AS total_revenue,
        FORMAT((SUM(md.cost)/SUM(wr.revenue))* 100, 2) as CRR,
        FORMAT(((SUM(wr.revenue) - SUM(md.cost)) / SUM(md.cost)) * 100, 2) AS roi,
-       FORMAT((SUM(md.clicks) / SUM(md.impressions)) * 100, 2) AS ctr,
        FORMAT(SUM(md.cost) / SUM(md.conversions), 2) AS cpl
 FROM campaign_info ci
     LEFT JOIN marketing_data md ON ci.id = md.campaign_id
@@ -65,13 +66,13 @@ GROUP BY ci.name, ci.id
 ORDER BY campaign_name;
 ```
 The results:
-|campaign_name|total_cost|total_impressions|total_clicks|total_revenue|CRR |roi     |ctr   |cpl |
-|-------------|----------|-----------------|------------|-------------|----|--------|------|----|
-|Campaign1    |4,170.51  |42810            |38724       |151792       |2.75|3,539.65|90.46 |0.46|
-|Campaign2    |4,075.50  |40938            |29652       |155308       |2.62|3,710.77|72.43 |0.45|
-|Campaign3    |15,809.04 |158280           |116048      |551672       |2.87|3,389.60|73.32 |0.44|
-|Campaign4    |3,970.14  |47508            |33318       |163396       |2.43|4,015.62|70.13 |0.43|
-|Campaign5    |4,077.15  |25641            |33663       |136404       |2.99|3,245.57|131.29|0.52|
+|campaign_name|total_cost|total_impressions|total_clicks|total_revenue|CRR |roi     |cpl |
+|-------------|----------|-----------------|------------|-------------|----|--------|----|
+|Campaign1    |4,170.51  |42810            |38724       |151792       |2.75|3,539.65|0.46|
+|Campaign2    |4,075.50  |40938            |29652       |155308       |2.62|3,710.77|0.45|
+|Campaign3    |15,809.04 |158280           |116048      |551672       |2.87|3,389.60|0.44|
+|Campaign4    |3,970.14  |47508            |33318       |163396       |2.43|4,015.62|0.43|
+|Campaign5    |4,077.15  |25641            |33663       |136404       |2.99|3,245.57|0.52|
 
 
 **Bonus Question**
