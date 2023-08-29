@@ -99,6 +99,6 @@ Results:
 |Wednesday  |1,539.50       |1,691.00         |6,324.67    |
 
 
-This query reveals that Sunday emerges as the most favorable day of the week for running ads, considering both impressions and revenue generated. However, it's essential to acknowledge that identifying the optimal day can be a subjective process, heavily influenced by the campaign's specific goals and objectives.
+This query reveals that Sunday emerges as the most favorable day of the week for running ads, considering both impressions and revenue generated. Also, Sunday is second in average clicks. However, it's essential to acknowledge that identifying the optimal day can be a subjective process, heavily influenced by the campaign's specific goals and objectives.
 
 Created by Wyatt Saltzman
