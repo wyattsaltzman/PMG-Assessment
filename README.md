@@ -9,7 +9,7 @@ SELECT DATE(date) AS Day, SUM(impressions) as total_impressions FROM marketing_d
 ```MYSQL
 SELECT state, SUM(revenue) as total_revenue FROM website_revenue GROUP BY state ORDER BY total_revenue DESC LIMIT 3;
 ```
-Ohio was the third best state generating 37577 in revenue.
+Ohio was the third best state generating 37,577 in revenue.
 
 **3. Write a query that shows total cost, impressions, clicks, and revenue of each campaign. Make sure to include the campaign name in the output.**
 ```MYSQL
