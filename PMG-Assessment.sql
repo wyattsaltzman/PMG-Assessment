@@ -26,7 +26,7 @@ SELECT DATE(date) AS Day, SUM(impressions) as total_impressions FROM marketing_d
 
 #2. Write a query to get the top three revenue-generating states in order of best to worst. How much revenue did the third best state generate?
 SELECT state, SUM(revenue) as total_revenue FROM website_revenue GROUP BY state ORDER BY total_revenue DESC LIMIT 3;
-# The third best state generated 6607 in revenue
+# The third best state generated 37577 in revenue
 
 #3. Write a query that shows total cost, impressions, clicks, and revenue of each campaign. Make sure to include the campaign name in the output.
 SELECT name as campaign_name,
