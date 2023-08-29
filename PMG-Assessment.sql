@@ -127,7 +127,6 @@ SELECT name as campaign_name,
        SUM(wr.revenue) AS total_revenue, ## delete everything below this
        FORMAT((SUM(md.cost)/SUM(wr.revenue))* 100, 2) as CRR,
        FORMAT(((SUM(wr.revenue) - SUM(md.cost)) / SUM(md.cost)) * 100, 2) AS roi,
-       FORMAT((SUM(md.clicks) / SUM(md.impressions)) * 100, 2) AS ctr,
        FORMAT(SUM(md.cost) / SUM(md.conversions), 2) AS cpl
 FROM campaign_info ci
     LEFT JOIN marketing_data md ON ci.id = md.campaign_id
